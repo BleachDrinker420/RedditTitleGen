@@ -1,5 +1,6 @@
 Subreddit: arabfunny
 Training Time: ~2.5 Hour
 Loss: ~1.48
+Creativity: 0.6
 Input: 11468
 Comment: didn't really turn out great unless you want nonsense half sentence a r a b f o o n y

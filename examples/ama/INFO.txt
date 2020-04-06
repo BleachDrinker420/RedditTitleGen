@@ -1,0 +1,6 @@
+Subreddit: arabfunny
+Training Time: ~45 Mins
+Loss: ~1.07
+Creativity: 0.55
+Input: 19578
+Comment: This is probably the best model so far, pretty happy with this
