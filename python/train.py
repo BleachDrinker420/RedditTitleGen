@@ -33,7 +33,7 @@ except:
 # --- Set Model ---
 textgen = None
 if inModel == "":
-    textgen = textgenrnn(name="Arab-" + str(int(time.time())))
+    textgen = textgenrnn(name="Model-" + str(int(time.time())))
 else:
     textgen = textgenrnn(inModel)
 
