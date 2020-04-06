@@ -26,5 +26,6 @@ try:
 except:
     print("Invalid Float, Setting To 0.5")
 
+
 textgen.generate_to_file("output.txt", n=textAmount, temperature=temp)
-print("\nDone!")
+print("\nDone! Written in output.txt")

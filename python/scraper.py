@@ -10,7 +10,7 @@ sort = "asc"
 flair = False
 
 # --- Set Removed Filter ---
-temp = input("Filter Removed [Y/n]: ").lower()
+temp = input("Filter Removed Posts [Y/n]: ").lower()
 if temp == "n":
     filterRem = False
 elif temp != "y":
