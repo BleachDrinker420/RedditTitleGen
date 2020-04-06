@@ -12,15 +12,41 @@ A quick-ish project i made to generate [arabfunny](https://www.reddit.com/r/arab
 [`requests`](https://pypi.org/project/requests/ "requests") Used to scrape the reddit api to get the titles
 
 ## Usage
-#### Scraper
-`Pretty straightforward, just run it and put in a subreddit, and it will return the titles in "titles.json"`
+
+All of the files can just be clicked on to run without any parameters
+### Scraper
+The scraper is used to get all the titles from a subreddit.
+
+The settings are:
+* `Subreddit` is the subreddit you want to scrape, just the name, without r/
+* `Filter Removed Posts` is used to remove deleted or removed posts
+* `Date Search` is used to change if you are searching for the "beginning -> now" or "now -> beginning" of the subbreddit
+* `Add Flair To Title` is used to add a flair in the post to the title, for example:
+
+*`Example Post`* -> *`[Example Flair] Example Post`*
+
+After you've put in the settings it will start scraping. You can use `Ctrl+C` to stop the scraper after that page and save the titles
 
 ---
-#### Train
-`Once you collected the titles, you need to train the network, run train.py and it will ask for a model (leave blank if you are training for the first time, or put the file name of a previous model in that folder if you are retraining), then it will ask for epochs, which are how many times it will train on the data, then it will begin training`
+### Train
+The *train.py* File is the file that trains the rnn on the texts you scraped
+
+The settings are:
+* `Model File To Load` is the model file that will be loaded, if left black it creates a new model in a new file. If you want to retrain a file, out the model filename in this field, it should be `Model-<unix-timestamp>_weights.hdf5` by default
+* `Text File To Train On` is the file to file with titles that you scraped on, (*it will automatically search for text files so you can just press enter if its already found the file*)
+* `Epochs To Run` is how many times it will train the rnn, on a decent gpu it will take ~30 sec-5 min/epoch depending on how many lines you have
+
+***TODO: Add batch setting***
+
+Then it will train on the text (*it might take a while loading all the text in*). It will give some example texts after each epoch so you can see when its trained enough
 
 ---
-#### Generator
-`After you are done training, you can generate new texts, to do this run generator.py and put the filename of the model you trained as the model, the text setting is how many words it output and the creativity setting is how much "Generated" text is in the text. The text output should be in output.txt`
+### Generator
+After you are done training, you can use the generator to generate new texts
 
+The settings are:
+* `Model File To Load` is the model file with the trained data, you should find it in the directory when you trained the model
+* `Texts To Output` is how many texts out create (*It takes a signifigant amount of time to create each text (2-3 sec/text on a decent gpu)*)
+* `Creativity` is how much the ai should guess when creating texts (*0.5-0.8 is usually good*)
 
+Then it will create the texts and output them to output.txt
