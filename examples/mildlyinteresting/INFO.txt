@@ -1,0 +1,4 @@
+Subreddit: mildlyinteresting
+Training Time: ~1 Hour
+Loss: ~1.45
+Input: 38553
