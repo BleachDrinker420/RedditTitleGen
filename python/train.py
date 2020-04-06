@@ -1,8 +1,26 @@
 from textgenrnn import textgenrnn
 import datetime
+import glob
 import time
+import sys
 
-inFile = input("\nModel File To Load (Leave Blank To Create New): ")
+inModel = input("\nModel File To Load (Blank To Create New): ")
+
+# --- Set Input Text ---
+inText = ""
+txts = glob.glob('*.txt')
+
+if len(txts) == 0:
+    inText = input("Text File To Train On: ")
+else:
+    inText = txts[0]
+    newText = input("Text File To Train On (Default = " + inText + "): ")
+
+    if newText != "" : inText = newText
+
+if inText == "":
+    print("No File Selected!")
+    sys.exit()
 
 # --- Set Epochs ---
 epochs = 8
@@ -14,14 +32,14 @@ except:
 
 # --- Set Model ---
 textgen = None
-if inFile == "":
+if inModel == "":
     textgen = textgenrnn(name="Arab-" + str(int(time.time())))
 else:
-    textgen = textgenrnn(inFile)
+    textgen = textgenrnn(inModel)
 
 # --- Train ---
 sTime = int(time.time())
-textgen.train_from_file('titles.txt', num_epochs=epochs)
+textgen.train_from_file(inText, num_epochs=epochs)
 
 # --- Done ---
 print("\nDone Training! Took: " + str(datetime.timedelta(seconds=int(time.time())-sTime))) 
