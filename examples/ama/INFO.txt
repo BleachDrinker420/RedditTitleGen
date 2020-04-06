@@ -1,4 +1,4 @@
-Subreddit: arabfunny
+Subreddit: ama
 Training Time: ~45 Mins
 Loss: ~1.07
 Creativity: 0.55
