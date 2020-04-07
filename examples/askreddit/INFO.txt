@@ -1,0 +1,5 @@
+Subreddit: askreddit
+Training Time: ~1 Hour
+Loss: ~1.04
+Creativity: 0.5
+Input: 37247
